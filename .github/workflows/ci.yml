@@ -1,0 +1,57 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  links:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config .lychee.toml --no-progress './**/*.md'
+          fail: true
+
+  data:
+    name: Validate data file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate free-llms.json
+        run: |
+          python3 - <<'EOF'
+          import json
+
+          required = {"name", "vendor", "url", "description",
+                      "free_tier", "limits", "gotchas",
+                      "free_verified", "source_url",
+                      "status", "category"}
+          statuses = {"active", "maintenance", "archived", "commercial"}
+          categories = {"api", "chat", "local"}
+
+          data = json.load(open("data/free-llms.json"))
+          assert isinstance(data, list) and data, "free-llms.json must be a non-empty list"
+          for i, e in enumerate(data):
+              missing = required - e.keys()
+              assert not missing, f"entry {i} ({e.get('name')}) missing {missing}"
+              assert e["category"] in categories, f"entry {i} bad category {e['category']}"
+              assert e["status"] in statuses, f"entry {i} bad status {e['status']}"
+              assert isinstance(e["free_verified"], bool), f"entry {i} free_verified not bool"
+              assert e["url"].startswith("https://"), f"entry {i} url must be https"
+              if e["free_verified"]:
+                  assert e["source_url"].startswith("https://"), \
+                      f"entry {i} verified entry needs https source_url"
+              assert isinstance(e["gotchas"], list) and e["gotchas"], \
+                  f"entry {i} gotchas must be non-empty list"
+          names = [e["name"] for e in data]
+          assert len(names) == len(set(names)), "duplicate names"
+          print(f"OK: data/free-llms.json: {len(data)} entries validated")
+          EOF
