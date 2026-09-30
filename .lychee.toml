@@ -15,6 +15,7 @@ exclude = [
   "https://www.meta.ai",  # 403 to automated checks; live for humans
   "https://www.perplexity.ai",  # 403 to automated checks; live for humans
   "https://fly.io",  # bot-hostile to automated checks
+  "https://chat.mistral.ai",  # 403 to automated checks; live for humans
 ]
 # Be lenient with rate-limited hosts; retry before failing.
 max_retries = 3
