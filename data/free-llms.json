@@ -425,8 +425,8 @@
       "Consumer chats used for training by default (opt-out available)",
       "Region restrictions in some countries"
     ],
-    "free_verified": true,
-    "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "free_verified": false,
+    "source_url": "",
     "status": "active",
     "category": "chat"
   },
