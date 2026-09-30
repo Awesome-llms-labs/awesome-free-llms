@@ -4,16 +4,16 @@
     "vendor": "Google",
     "url": "https://ai.google.dev/",
     "description": "Gemini API free plan: Flash and Flash-Lite family models free per model, no card — the most generous big-lab API free tier.",
-    "free_tier": "Flash/Flash-Lite models free per model on the free plan (no card)",
-    "limits": "unverified — RPM/TPM/RPD figures sit behind sign-in and vary by project/region",
+    "free_tier": "Free plan with free input/output tokens for Flash-family models (exact free models vary)",
+    "limits": "Model-dependent; public page did not state RPM/TPM/RPD numbers — account/project Limits page is authoritative",
     "gotchas": [
       "Free-tier inputs/outputs may be used to improve Google's products",
       "Rate limits vary by project and region; exact numbers behind sign-in",
       "Older 2.5-model access restricted for new projects (~2026-09-18)",
       "Pro models moved out of the general free tier earlier in 2026"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
     "status": "active",
     "category": "api"
   },
@@ -22,14 +22,14 @@
     "vendor": "Groq",
     "url": "https://groq.com/",
     "description": "LPU-chip inference cloud with a recurring free developer plan, no card required.",
-    "free_tier": "Recurring free developer plan, per-model limits, no card required",
-    "limits": "unverified — third-party transcription of Groq's official table: e.g. GPT-OSS 120B/20B at 30 RPM / 1,000 RPD / 8,000 TPM / 200,000 TPD per organization",
+    "free_tier": "Recurring free developer plan with per-model organization limits",
+    "limits": "Official table e.g. openai/gpt-oss-120b, openai/gpt-oss-20b, openai/gpt-oss-safeguard-20b, qwen/qwen3.8-27b: 30 RPM / 1,000 RPD / 8,000 TPM / 200,000 TPD; Whisper models: 20 RPM / 2,000 RPD / 7,200 ASH / 28,800 ASD — actual organization limits may differ; signed-in Limits page authoritative",
     "gotchas": [
       "Limits differ per model (classifiers/audio differ)",
-      "Exact numbers need confirmation on Groq's rate-limits doc before relying on them"
+      "'No card required' not explicitly stated on opened official pages — not confirmed"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://console.groq.com/docs/rate-limits",
     "status": "active",
     "category": "api"
   },
@@ -60,7 +60,8 @@
     "gotchas": [
       "Free-model catalog rotates; availability changes often",
       "Some :free models require prompt logging / data-policy relaxation or only work via approved agentic harnesses",
-      "Negative balance can block even free models"
+      "Negative balance can block even free models",
+      "Verification: official page confirms :free variants ($0/token) and that negative balances can block free models, but numeric tier thresholds (20 RPM / 50 RPD / 1,000 RPD / ≥$10 purchase) are not visible — specific quota claims unverified (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -72,14 +73,14 @@
     "vendor": "Fireworks AI",
     "url": "https://docs.fireworks.ai/faq-new/billing-pricing/",
     "description": "GPU inference cloud with a small reported starter credit and no permanent free tier.",
-    "free_tier": "No permanent free tier; reported $1 starter credit, no card",
-    "limits": "unverified — some sources say default unpaid cap ~10 RPM; expiry unclear/conflicting",
+    "free_tier": "$1 in free credits — starter credit",
+    "limits": "No expiry, recurrence, no-card terms, or RPM stated on the page",
     "gotchas": [
-      "Prepaid credits after exhaustion",
-      "Credit expiry is unclear and conflicting across sources"
+      "Not a permanent recurring tier; expiry and limits unconfirmed",
+      "Prepaid credits after exhaustion"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://fireworks.ai/pricing",
     "status": "active",
     "category": "api"
   },
@@ -88,14 +89,14 @@
     "vendor": "Nebius",
     "url": "https://docs.tokenfactory.nebius.com/",
     "description": "GPU inference cloud (renamed from Nebius AI Studio) with a small reported trial credit.",
-    "free_tier": "Reported $1 trial credit, valid 30 days",
-    "limits": "unverified — $1 credit / 30 days per third-party reports",
+    "free_tier": "$1 trial credit on first signup",
+    "limits": "Valid 30 days",
     "gotchas": [
-      "A bank card is reportedly required to set up billing even to access the trial",
+      "Billing setup mandatory — card required to complete onboarding; card can be auto-charged at threshold or on negative balance",
       "Product renamed to Nebius Token Factory — old AI Studio docs may be stale"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.tokenfactory.nebius.com/other-capabilities/billing-new",
     "status": "active",
     "category": "api"
   },
@@ -104,15 +105,15 @@
     "vendor": "Hugging Face",
     "url": "https://huggingface.co/docs/inference-providers",
     "description": "Gateway routing to 18 inference partners with a small recurring monthly credit for free users.",
-    "free_tier": "Recurring monthly credits reported as $0.10/month for free users (auto-applied); PRO reportedly $2/month",
-    "limits": "unverified — no reliable public free-account rate limit found",
+    "free_tier": "Free users: $0.10/month; PRO users: $2/month (subject to change)",
+    "limits": "Auto-applied to routed requests; no public numeric request-rate limit stated",
     "gotchas": [
-      "Account/token required",
+      "Extra usage requires purchased credits; custom provider keys don't receive HF credits",
       "Upstream model availability rotates and may 404/410",
       "$0.10/month is small — heavy models drain it in a few turns"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://huggingface.co/docs/inference-providers/pricing",
     "status": "active",
     "category": "api"
   },
@@ -121,15 +122,14 @@
     "vendor": "Pollinations.ai",
     "url": "https://pollinations.ai/",
     "description": "Community-run free inference: legacy anonymous text endpoint plus a new key-based Pollen-credit system.",
-    "free_tier": "Legacy anonymous endpoint (text.pollinations.ai/openai, no key) plus gen.pollinations.ai with API key spending Pollen credits; registered accounts get free Pollen refilled hourly",
-    "limits": "unverified — base-tier amounts uncertain; publishable keys reportedly cap 1 Pollen/IP/hour",
+    "free_tier": "'Free Pollen for prototypes & testing' earned via Quests; user-pays BYOP model — apps let end users spend their own Pollen",
+    "limits": "No fixed public quota stated",
     "gotchas": [
-      "Legacy '1 request/15s' quotes are stale",
-      "Current rate limit not officially published",
+      "Legacy anonymous endpoint / hourly refill / 1-Pollen-per-IP claims not established by opened official material — omitted",
       "Split platform: legacy anonymous vs new keyed system — check which endpoint you're using"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://pollinations.ai/",
     "status": "active",
     "category": "api"
   },
@@ -138,15 +138,15 @@
     "vendor": "Puter",
     "url": "https://puter.com/",
     "description": "Client-side JS SDK (puter.ai.chat) for user-pays AI — the developer pays $0; the end user authenticates and covers usage.",
-    "free_tier": "Not provider-funded: developer embeds Puter.js with no API key and pays $0; end user authenticates to Puter and covers usage",
-    "limits": "No trustworthy official numeric free quota found — do not cite third-party '~200 requests/day' claims",
+    "free_tier": "User-pays model: developer infrastructure cost $0; every user starts with a free monthly allowance (amount unstated), prompted to upgrade when exhausted",
+    "limits": "No API keys; built-in Puter authentication",
     "gotchas": [
+      "Not a provider-funded developer API — free usage depends on the end user's own Puter account",
       "Users see a sign-in popup before AI calls work",
-      "Browser/client SDK only — not a server-side API key model",
-      "Free usage depends on the end user's own Puter account terms"
+      "Browser/client SDK only — not a server-side API key model"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.puter.com/user-pays-model/",
     "status": "active",
     "category": "api"
   },
@@ -171,15 +171,13 @@
     "vendor": "Cohere",
     "url": "https://cohere.com/",
     "description": "Trial API keys that reportedly never expire but are capped monthly and evaluation-only.",
-    "free_tier": "Trial keys reportedly never expire, capped ~1,000 API calls/month",
-    "limits": "unverified — reported Chat ~20 RPM, Rerank ~10 RPM, Tokenize ~100 RPM, Embed ~2,000 inputs/min, transcription ~5 RPM",
+    "free_tier": "Free evaluation keys",
+    "limits": "Trial keys: 1,000 API calls/month; Chat 20 RPM; transcription 5/min; Embed 2,000 inputs/min; EmbedJob 5/min; Rerank 10/min; Tokenize 100/min; Parse/default 500/min",
     "gotchas": [
-      "Evaluation-only — prohibited for production/commercial use",
-      "Trial inputs/outputs may be used to improve models",
-      "Exact RPM figures unverified"
+      "'Evaluation-only / non-production' and training-data-use claims not established by the opened page — omitted unless separately verified"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.cohere.com/docs/rate-limits",
     "status": "active",
     "category": "api"
   },
@@ -188,15 +186,13 @@
     "vendor": "Mistral AI",
     "url": "https://mistral.ai/",
     "description": "Mistral's 'Experiment' tier reportedly reaches all/most models with no card — one of the largest free API allowances.",
-    "free_tier": "Free 'Experiment' tier reportedly reaches all/most Mistral models, no card",
-    "limits": "unverified — frequently reported ~1B tokens/month, ~1 RPS, ~500K TPM, but some reports conflict with much lower practical RPM",
+    "free_tier": "'Free mode' — create API keys and use included monthly usage",
+    "limits": "Actual limits shown in signed-in Admin Panel → API → Limits (completion limits include tokens/minute and requests/second); no public quota numbers",
     "gotchas": [
-      "A Sept 2026 source instead claims a '$10/month API credits' model — unresolved conflict, check the official page",
-      "Free-tier inputs/outputs may be used for training by default (opt-out may exist)",
-      "Practical limits reported lower than headline numbers"
+      "1B tokens/mo / 1 RPS / 500K TPM / no-card / all-model-access / training-default claims not established on the opened page — omitted"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.mistral.ai/admin/billing-usage/usage-limits",
     "status": "active",
     "category": "api"
   },
@@ -205,15 +201,15 @@
     "vendor": "Zhipu AI",
     "url": "https://docs.z.ai/guides/overview/pricing",
     "description": "Chinese lab with three GLM Flash models permanently priced at $0 on the API.",
-    "free_tier": "glm-4.5-flash and glm-4.7-flash permanently priced at $0; glm-4.6v-flash may also be free",
-    "limits": "unverified — third-party reported limit of 1 concurrent request per free model",
+    "free_tier": "GLM-4.7-Flash, GLM-4.5-Flash, GLM-4.6V-Flash fully free (input, cached input, cache storage, output)",
+    "limits": "No public rate/concurrency or card/phone terms stated",
     "gotchas": [
-      "Starter-grant claims (20M-25M tokens) unverified — omitted without official confirmation",
+      "Newer GLM-5.x Flash models are paid; 'limited-time Free' referred only to cache storage",
       "Card/phone requirements conflict by region/source",
       "Distinct from the consumer chat at chat.z.ai — API and chat quotas are separate"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.z.ai/guides/overview/pricing",
     "status": "active",
     "category": "api"
   },
@@ -222,15 +218,16 @@
     "vendor": "Alibaba Cloud",
     "url": "https://www.alibabacloud.com/help/en/model-studio/new-free-quota",
     "description": "1M-token free quotas per eligible Qwen model in the International (Singapore) region.",
-    "free_tier": "1,000,000 free tokens per eligible model, valid 90 days from activation/model release/approval (whichever latest); International (Singapore) region only",
-    "limits": "unverified — eligible Sept 2026 models reportedly include Qwen 3.8 Max/Flash/27B, Qwen3 Max, Qwen3 Coder; confirm on the official table",
+    "free_tier": "1,000,000 tokens per eligible model, International (Singapore) region only; account info must be completed",
+    "limits": "Valid 90 days from activation/model release/approval (whichever latest); real-time inference only; input+output share one quota",
     "gotchas": [
-      "No free quota in other regions",
-      "Automatic PAYG billing can kick in after quota unless 'Free Quota Only' is enabled per model (reportedly off by default)",
-      "Alibaba states submitted data is not used for model training"
+      "PAYG starts automatically after expiry/exhaustion unless 'Free Quota Only' is enabled (disabled by default)",
+      "Eligible Sept-2026 model roster not verified — check the live table",
+      "Alibaba states submitted data is not used for model training",
+      "No free quota in other regions"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://www.alibabacloud.com/help/en/model-studio/new-free-quota",
     "status": "active",
     "category": "api"
   },
@@ -239,15 +236,15 @@
     "vendor": "Novita AI",
     "url": "https://novita.ai/",
     "description": "Aggressive-pricing GPU cloud: a sandbox compute voucher plus a tiny LLM signup credit and some $0/token models.",
-    "free_tier": "Two distinct things: (a) Sandbox — reported $100 Sandbox credits valid 90 days, no card; (b) LLM API — only ~$0.50 signup credit reported",
-    "limits": "unverified — sandbox sessions <=1h, 5 concurrent, 2 vCPU/4GB RAM",
+    "free_tier": "Ling 3.1 Flash and Ling 3.0 Flash Sante priced Free (input and output free)",
+    "limits": "No public usage quota stated",
     "gotchas": [
+      "Sandbox voucher ($100/90-day) and ~$0.50 signup credit claims not confirmed on the page — omitted",
       "The $100 sandbox voucher is compute credit, NOT LLM API inference credit",
-      "A handful of genuinely $0/token open-source models reportedly stay free after the voucher — check their live model list",
       "Sandbox terms reportedly prohibit commercial use without written permission"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://novita.ai/pricing",
     "status": "active",
     "category": "api"
   },
@@ -260,7 +257,8 @@
     "limits": "unverified — evidence is thin; verify on Parasail's pricing page",
     "gotchas": [
       "Third-party registry flags a linked payment method as required",
-      "Paid = pay-per-token serverless or hourly GPU"
+      "Paid = pay-per-token serverless or hourly GPU",
+      "Verification: claimed 'Serverless - Free' tier (5 RPM) is absent from current official pricing — paid per-token with card required; free-tier claim not verifiable (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -277,7 +275,8 @@
     "gotchas": [
       "No card reportedly required for the credit itself, but a payment method is needed for sustained use",
       "Distinct from claude.ai free chat (rolling 5-hour usage windows, not API access)",
-      "Claude-for-Open-Source program: 6 months of Max 20x for qualifying maintainers (launched Feb 2026)"
+      "Claude-for-Open-Source program: 6 months of Max 20x for qualifying maintainers (launched Feb 2026)",
+      "Verification: official pricing page lists only paid rates — no starter credit or free API offer visible (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -293,7 +292,8 @@
     "limits": "unverified — delisted by a Sept 2026 tracker because the official pricing page names no grant",
     "gotchas": [
       "Off-peak pricing is discounted, not free; windows/percentages conflict across sources",
-      "Mark unverified unless an official page confirms"
+      "Mark unverified unless an official page confirms",
+      "Verification: official page mentions a 'granted balance' but states no amount, expiry, or how to obtain one — 5M-token / 30-day claims unconfirmed (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -309,7 +309,8 @@
     "limits": "unverified",
     "gotchas": [
       "Do NOT confuse MiniMax Agent consumer credits (reportedly 1,000 signup + 200 daily-login credits) with developer API credits",
-      "Confirm current terms on the platform before relying on a trial"
+      "Confirm current terms on the platform before relying on a trial",
+      "Verification: no trial credit or free tier stated on the official page (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -321,15 +322,15 @@
     "vendor": "SambaNova",
     "url": "https://cloud.sambanova.ai/plans",
     "description": "Free tier retired for new accounts ~Aug 2026 — 'Add a payment method and purchase credits to run your first requests'.",
-    "free_tier": "Retired — none for new accounts",
+    "free_tier": "No usable free tier for new accounts — plan labeled 'Free' requires: 'Add a payment method and purchase credits to run your first requests'; included item is pay-as-you-go credits",
     "limits": "n/a (retired)",
     "gotchas": [
       "Delisted from a major free-tier tracker on 2026-09-23",
       "Stale docs still describe a Free Tier (20 RPM / 20 RPD / 200K TPD per model) — superseded by the plans page",
       "May persist for grandfathered accounts"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://cloud.sambanova.ai/plans",
     "status": "archived",
     "category": "api"
   },
@@ -338,14 +339,14 @@
     "vendor": "Chutes",
     "url": "https://chutes.ai/",
     "description": "Recurring free tier reportedly ended March 2026; decentralized Bittensor inference remains active but paid.",
-    "free_tier": "Retired — recurring free tier ended March 2026",
+    "free_tier": "No current free tier — 'We do not offer a free tier at this time'",
     "limits": "n/a (retired)",
     "gotchas": [
-      "Several older pages still incorrectly describe Chutes as free/community-powered",
-      "Current pricing may fluctuate — verify on the live site"
+      "PAYG with no minimum commitment; paid Plus $10/mo, Pro $20/mo",
+      "Historical end date not officially confirmed — omitted"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://chutes.ai/pricing",
     "status": "archived",
     "category": "api"
   },
@@ -354,14 +355,13 @@
     "vendor": "Together AI",
     "url": "https://www.together.ai/",
     "description": "No current free trial — June-Sept 2026 evidence says platform access requires a minimum $5 credit purchase.",
-    "free_tier": "Retired — older claims of $1/$5/$25 signup credits appear obsolete",
-    "limits": "n/a (no current offer)",
+    "free_tier": "No current free trial — 'Together AI does not currently offer free trials. Access to the Together platform requires a minimum $5 credit purchase.' Fully prepaid",
+    "limits": "Purchased credits currently have no expiration",
     "gotchas": [
-      "One 2026 research source notes only Ternary Bonsai 27B priced at zero",
-      "Verify on Together's billing/credits page before listing any offer"
+      "Third-party '$150 promo via form' claim not on the official page — omitted"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.together.ai/docs/billing-credits",
     "status": "archived",
     "category": "api"
   },
@@ -370,14 +370,13 @@
     "vendor": "DeepInfra",
     "url": "https://deepinfra.com/",
     "description": "No free tier — newer evidence says a card or prepay is required before any services work.",
-    "free_tier": "Retired — older $5/signup-credit claims appear obsolete",
-    "limits": "n/a (no current offer)",
+    "free_tier": "No free tier — official billing: 'You have to add a card or pre-pay or you won't be able to use our services.'",
+    "limits": "n/a (retired)",
     "gotchas": [
-      "Conflicting old claims (~$1-$5 signup credit)",
-      "Verify current terms on the pricing page"
+      "Old signup-credit claims (~$1-$5) obsolete"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://deepinfra.com/pricing",
     "status": "archived",
     "category": "api"
   },
@@ -386,29 +385,31 @@
     "vendor": "OpenAI",
     "url": "https://platform.openai.com/",
     "description": "No reliable free tier: new accounts no longer receive automatic signup credits (program discontinued ~mid-2025).",
-    "free_tier": "None reliable — no signup credits; possibly a very limited no-payment tier on older models (~3 RPM on GPT-3.5-class, third-party)",
-    "limits": "unverified",
+    "free_tier": "No free API tier — pricing page shows only paid offerings",
+    "limits": "n/a (no free tier)",
     "gotchas": [
+      "Do not conflate ChatGPT Free with API access; third-party '~3 RPM' claims unverified",
       "Eligible orgs may see a 'complimentary daily tokens' banner tied to data-sharing opt-in",
       "$5 minimum initial prepaid purchase for real use"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://openai.com/api/pricing/",
     "status": "archived",
     "category": "api"
   },
   {
-    "name": "xAI API (no reliable current offer)",
+    "name": "xAI API (no free tier)",
     "vendor": "xAI",
     "url": "https://x.ai/api",
     "description": "Highly conflicting 2026 reports — no reliable current free offer; the data-sharing credit program may have ended.",
-    "free_tier": "Conflicting: many 2026 sources claim $25 signup credit plus up to $150/mo after a $5 minimum spend with irreversible data-sharing opt-in; a later source says the program ended",
-    "limits": "unverified",
+    "free_tier": "No free API tier — official FAQ: 'API usage is billed per token rather than free, but the Playground comes with every Console account, so you can test the latest Grok models before adding billing'",
+    "limits": "grok-4.7 usage pricing: $2/1M input, $6/1M output tokens",
     "gotchas": [
-      "Use official xAI billing/data-sharing pages only; if they show no grant, report 'no reliable current offer'"
+      "Signup-credit / data-sharing-credit program claims absent from official pages — unconfirmed",
+      "API page now branded 'SpaceXAI'"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://x.ai/api",
     "status": "archived",
     "category": "api"
   },
@@ -417,16 +418,18 @@
     "vendor": "OpenAI",
     "url": "https://chatgpt.com",
     "description": "Free text chat; Aug 2026 reports say unlimited chat on GPT-5.6 'Luna' with limited files/images/tools.",
-    "free_tier": "Free text chat. Aug 2026 third-party reports: unlimited text chat on GPT-5.6 'Luna' (default, warm tone), limited files/images/tools, Think button for reasoning",
-    "limits": "Official OpenAI help article (GPT-5.5 era) still states: free = up to 10 GPT-5.5 messages per 5 hours, then auto-switch to the mini version — current Luna behavior third-party reported",
+    "free_tier": "ChatGPT Free includes GPT-5.2, web search, data analysis, file/image upload, image creation, GPT use, and voice",
+    "limits": "Usage limited within a five-hour window (no numeric message count published); tool limits are separate",
     "gotchas": [
+      "Official FAQ still names GPT-5.2 — page text may lag current model names",
+      "Exact free quota is unpublished",
+      "Consumer chats used for training by default (opt-out available)",
       "Login required",
       "Older free models retired on a schedule (GPT-5 retired Feb 13, 2026)",
-      "Consumer chats used for training by default (opt-out available)",
       "Region restrictions in some countries"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq",
     "status": "active",
     "category": "chat"
   },
@@ -435,15 +438,15 @@
     "vendor": "Anthropic",
     "url": "https://claude.ai",
     "description": "Free access to the current Sonnet-class model with compute-based limits on a rolling 5-hour window.",
-    "free_tier": "Free access to current Sonnet-class model (Sonnet 5 per Sept 2026 reviews), web search, file uploads, Projects, Artifacts, limited agent/coding features",
-    "limits": "unverified — limits are compute-based on a rolling 5-hour window; no fixed published message count (third-party estimates 15-40/window are not official)",
+    "free_tier": "Free: $0 — web/desktop/mobile chat, web search, file creation & code execution, memory, apps/tools connections, Artifacts",
+    "limits": "Limits reset on rolling five-hour windows; no fixed message count (varies by conversation complexity, model, features); Pro has ≥5x Free per five-hour session",
     "gotchas": [
-      "Login required",
-      "Free-tier conversations reportedly used for training with opt-out",
-      "Claude Code not included on Free"
+      "Claude Code only in paid plans",
+      "Model training is opt-out",
+      "Login required"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://www.anthropic.com/pricing",
     "status": "active",
     "category": "chat"
   },
@@ -452,14 +455,15 @@
     "vendor": "Google",
     "url": "https://gemini.google.com",
     "description": "Free chat with the standard Gemini model plus some access to Pro features.",
-    "free_tier": "Free: standard model reportedly Gemini 3.6 Flash (Sept 2026 reviews), some access to Pro model, image generation, Deep Research (~5 reports/month per one review)",
-    "limits": "unverified — limits are compute-based on a 5-hour cycle; no published message count; Gemini API quotas are separate and not applicable here",
+    "free_tier": "Free (no AI plan): Gemini 3 Flash-Lite, Gemini 3 Flash, Gemini 3 Pro; 32K context; Canvas, Gems, Storybook, connected apps, Deep Research, Nano Banana 2 image generation, audio overviews",
+    "limits": "'Standard limits' — compute-based, refreshing every five hours up to a weekly cap; no exact prompt count published; limits can change without notice; free users restricted first during high demand",
     "gotchas": [
+      "Daily brief, Gemini Spark, video, scheduled actions, and Nano Banana Pro redo are NOT available on free",
       "Google account required",
       "Gemini Apps activity may be used for training unless paused"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://support.google.com/gemini/answer/16275805",
     "status": "active",
     "category": "chat"
   },
@@ -468,15 +472,14 @@
     "vendor": "xAI",
     "url": "https://grok.com",
     "description": "Free tier on grok.com/X with the lighter model and tight per-hour prompt limits.",
-    "free_tier": "Free tier on grok.com/X with lighter model; ~10 prompts per rolling 2 hours reported (third-party); no card required",
-    "limits": "unverified — ~10 prompts / 2h per third-party reports",
+    "free_tier": "Free: $0/month — real-time web/X search, voice, connectors, 'generous limits'",
+    "limits": "No numeric prompt cap published on the official page; no official free-model name stated",
     "gotchas": [
-      "Login required (reports say X account 7+ days old with verified phone)",
-      "Image/video creation gated to paid SuperGrok",
-      "Exact current free model not reliably established"
+      "Image/video creation and frontier models gated to paid SuperGrok",
+      "Login required (reports say X account 7+ days old with verified phone — unconfirmed on page)"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://x.ai/pricing",
     "status": "active",
     "category": "chat"
   },
@@ -485,15 +488,16 @@
     "vendor": "Microsoft",
     "url": "https://copilot.microsoft.com",
     "description": "Free core text chat; quick chat works without sign-in, sign-in unlocks more.",
-    "free_tier": "Free core text chat; quick chat works without sign-in. Sign-in unlocks history, longer conversations, image creation, voice",
-    "limits": "unverified — standard model, capacity throttling, no published numeric text-chat cap",
+    "free_tier": "Free at no cost — chat, web-grounded answers, Edge summaries",
+    "limits": "No published numeric chat limit on this official page",
     "gotchas": [
-      "Copilot Pro retired late 2025 (replaced by Microsoft 365 Premium / Copilot Plan ~$19.99/mo)",
-      "Free Office-app integration narrowed/ended in 2026",
-      "Data used for ads/personalization (opt-out exists); content filtering"
+      "No sign-in required for basic chat; signing in adds history, image creation, longer conversations, voice",
+      "Microsoft 365 desktop-app integration requires an eligible subscription",
+      "Copilot Pro retired late 2025",
+      "Data used for ads/personalization (opt-out exists)"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://support.microsoft.com/en-us/topic/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365-cfff4791-694a-4d90-9c9c-1eb3fb28e842",
     "status": "active",
     "category": "chat"
   },
@@ -506,7 +510,8 @@
     "limits": "unverified — image generation reportedly limited (~25/day per one review); 'Meta One' paid add-ons now exist",
     "gotchas": [
       "AI chats processed by Meta and may be used for training/ads personalization",
-      "Normal WhatsApp person-to-person chats remain E2EE"
+      "Normal WhatsApp person-to-person chats remain E2EE",
+      "Verification: official Facebook help page confirms features but states no pricing/free-plan terms; Meta's 'remains free' announcement not locatable as an official page (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -523,7 +528,8 @@
     "gotchas": [
       "Login via email/Google/Apple",
       "Hosted in China; slowdowns in busy periods; data-privacy scrutiny",
-      "Regional/government restrictions in some countries"
+      "Regional/government restrictions in some countries",
+      "Verification: official page is a login surface only — no free-plan terms stated (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -539,7 +545,8 @@
     "limits": "unverified — no published cap",
     "gotchas": [
       "Account via email or phone; data hosted by Alibaba",
-      "Qwen's free developer OAuth/coding API route ended 2026-04-15 (consumer chat unaffected)"
+      "Qwen's free developer OAuth/coding API route ended 2026-04-15 (consumer chat unaffected)",
+      "Verification: official app page states no pricing or free-access terms (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -551,30 +558,31 @@
     "vendor": "Moonshot AI",
     "url": "https://www.kimi.com",
     "description": "Free web/mobile chat with Kimi K2.6/K3 chat and agent modes.",
-    "free_tier": "Free web/mobile chat with Kimi K2.6/K3 chat and agent modes; unpublished query/context limits",
-    "limits": "unverified — free limits not published; heavy agent/Deep Research features reportedly paid (~$19/mo Moderato)",
+    "free_tier": "Free basic services plus paid value-added services (official terms effective Aug 31, 2026); registration via phone or supported third-party account",
+    "limits": "Exact models, features, and query limits are not stated; responsiveness not guaranteed due to technical/resource limits",
     "gotchas": [
-      "Login required",
-      "Free limits not published"
+      "Inputs/outputs and feedback may be used for model optimization — contact Kimi to opt out",
+      "Login required"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://www.kimi.com/user/agreement/modelUse?version=v2",
     "status": "active",
     "category": "chat"
   },
   {
-    "name": "Le Chat by Mistral",
+    "name": "Mistral Vibe (formerly Le Chat)",
     "vendor": "Mistral AI",
     "url": "https://chat.mistral.ai",
     "description": "Free tier with the default Mistral model, web search, image generation, and connectors.",
-    "free_tier": "Free tier with default Mistral Medium 3.5 (product relaunched as 'Mistral Vibe' May 2026 per one review), limited messages, web searches, image generation, connectors, voice",
-    "limits": "unverified — numeric message limit NOT published; third-party guesses (~25/day vs ~200/day) are unreliable, do not cite",
+    "free_tier": "Free includes web/mobile Vibe, latest models, chat/search/creation, limited messages and web searches, limited coding sessions, image generation, Studio access, $10/mo API credits, 100+ connectors; task scheduling up to 5; document-upload storage limited",
+    "limits": "Exact baseline message/search/image counts unpublished (paid comparisons only: up to 6x Free messages, 5x searches, 40x image generations)",
     "gotchas": [
-      "Login required",
-      "Free-tier conversations may be used for training unless opted out"
+      "Product rebranded from 'Le Chat' to 'Vibe'",
+      "Paid plans are model-training opt-out — Free is not shown as opt-out",
+      "Login required"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://mistral.ai/pricing",
     "status": "active",
     "category": "chat"
   },
@@ -583,14 +591,15 @@
     "vendor": "Perplexity AI",
     "url": "https://www.perplexity.ai",
     "description": "Practically unlimited basic searches plus a small daily allowance of Pro searches.",
-    "free_tier": "Practically unlimited basic/Best searches, 3 Pro Searches/day, 1 Research query/month, limited file uploads (Sept 2026 plan-guide reviews); automatic model selection",
-    "limits": "unverified — 3 Pro searches/day per Sept 2026 reviews; older '5 Pro searches/day' pages are stale",
+    "free_tier": "Free (Standard): practically unlimited basic searches, 3 Pro Searches/day, 1 Research query/month, automatic model selection, limited basic file uploads",
+    "limits": "3 Pro Searches/day; 1 Research query/month",
     "gotchas": [
-      "Login required for Pro searches",
-      "No manual frontier-model picker on free"
+      "No advanced model selection, no image generation, no premium support",
+      "Free privacy tier is 'Standard' (no AI-training opt-out — paid consumer plans have opt-out)",
+      "Account/login required"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
     "status": "active",
     "category": "chat"
   },
@@ -603,7 +612,8 @@
     "limits": "unverified — ~50 requests/day claimed by one third-party guide",
     "gotchas": [
       "Account via phone/email; Chinese company with standard data-collection terms",
-      "API side: GLM-4.7-Flash/4.5-Flash/4.6V-Flash permanently free; flagship GLM-5.x limited-time/promotional — do not conflate chat and API quotas"
+      "API side: GLM-4.7-Flash/4.5-Flash/4.6V-Flash permanently free; flagship GLM-5.x limited-time/promotional — do not conflate chat and API quotas",
+      "Verification: official chat page is marketing-only; do not conflate free API Flash models with consumer-chat quotas (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -615,11 +625,12 @@
     "vendor": "ByteDance",
     "url": "https://www.doubao.com",
     "description": "ByteDance's consumer AI app: core daily chat, copywriting, and lookup remain free.",
-    "free_tier": "Free core app: daily chat, copywriting, information lookup remain free",
-    "limits": "unverified — no exact free allowance published; paid Professional tiers launched 2026-06-24 (¥68/200/500 per month) for expert/office-heavy workflows",
+    "free_tier": "Consumer app reportedly free for daily chat/copywriting/lookup; paid Professional tiers (¥68/200/500/mo) launched 2026-06-24 — unconfirmed on official pages",
+    "limits": "unverified",
     "gotchas": [
       "China-focused; Chinese phone-number signup typical",
-      "Data hosted by ByteDance"
+      "Data hosted by ByteDance",
+      "Verification: official ByteDance consumer sites unreachable (timeouts) this session; 'free unlimited' claim softened — paid tiers exist per third-party reports, ByteDance's free-basics commitment unconfirmed officially (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -635,7 +646,8 @@
     "limits": "unverified — no explicit cap found",
     "gotchas": [
       "Baidu account + real-name verification; mainland-China availability",
-      "Baidu announced deep ERNIE integration into search/products instead of a paid tier"
+      "Baidu announced deep ERNIE integration into search/products instead of a paid tier",
+      "Verification: official app site unreachable (timeouts) this session; Reuters reports free for all since April 1, 2025 — no official Baidu page opened (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -647,14 +659,15 @@
     "vendor": "GitHub",
     "url": "https://github.com/features/copilot",
     "description": "Free coding-assistant tier in VS Code — but terms shifted in 2026; current status needs confirmation.",
-    "free_tier": "Legacy allowance widely cited: 2,000 code completions + 50 chat/agent requests/month",
-    "limits": "unverified — one Sept 2026 aggregate says 5 premium requests/month on Copilot Free; premium requests converted to AI Credits on 2026-06-01; new free signups reportedly paused ~2026-04-20",
+    "free_tier": "Copilot Free: limited access to a selection of Copilot features at no cost; 2,000 code completions/month plus a limited monthly allowance of GitHub AI Credits for chat and agent features; models via auto model selection only",
+    "limits": "Chat/agent usage varies with model and tokens processed (no fixed message count)",
     "gotchas": [
-      "GitHub account required; telemetry/training settings configurable",
-      "Current free availability needs official confirmation"
+      "From April 24, 2026 GitHub may use Free/Pro/Pro+ inputs/outputs for model training unless the user opts out",
+      "Free only for individuals without org/enterprise seat access",
+      "GitHub account required; telemetry/training settings configurable"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot",
     "status": "maintenance",
     "category": "chat"
   },
@@ -663,15 +676,15 @@
     "vendor": "GitHub",
     "url": "https://github.com/features/spark",
     "description": "App-building copilot with an uncertain standalone free tier — tied to Copilot request pools.",
-    "free_tier": "One Sept 2026 usage report: free pool of ~50 premium requests/month; a Spark message consumed ~4 premium requests (~12 messages)",
-    "limits": "unverified — other evidence ties Spark to Copilot Pro+ (1500 premium requests/month ~ 375 Spark messages); no stable standalone free tier confirmed",
+    "free_tier": "Retired Aug 31, 2026 — no new users since Aug 4, 2026 (per GitHub Changelog)",
+    "limits": "n/a (retired)",
     "gotchas": [
-      "GitHub account required",
-      "App-building focus, not a general chat copilot"
+      "GitHub Models inference retired July 30, 2026; deployed Spark apps still run",
+      "Entry moved to retired section"
     ],
     "free_verified": false,
-    "source_url": "",
-    "status": "maintenance",
+    "source_url": "https://docs.github.com/en/billing/concepts/product-billing/github-spark",
+    "status": "archived",
     "category": "chat"
   },
   {
@@ -684,7 +697,8 @@
     "gotchas": [
       "Hugging Face login required",
       "Some sources say conversations may be used for training",
-      "Heavy models drain the credit fast"
+      "Heavy models drain the credit fast",
+      "Verification: official page confirms the app and model choice but states no free-plan terms or quotas (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -699,7 +713,8 @@
     "free_tier": "Free: 300 compute points/day since ~2026-03-30 (down from 3,000/day), no rollover; each bot/message costs a different number of points",
     "limits": "unverified — point costs vary by model, not a fixed message count",
     "gotchas": [
-      "Account required"
+      "Account required",
+      "Verification: official homepage states no free-plan terms or point allowances (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -714,7 +729,8 @@
     "free_tier": "Free: core chat/search with usage limits",
     "limits": "unverified — old official docs claimed unlimited basic chat; a 2025-era aggregate says 25-query trial; current 2026 limits could not be reliably verified",
     "gotchas": [
-      "Data on current free model/quota is stale or conflicting"
+      "Data on current free model/quota is stale or conflicting",
+      "Verification: official pricing page now covers only Web Search API pricing — consumer free-chat terms no longer published; stale 2023 material superseded (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -726,13 +742,14 @@
     "vendor": "DuckDuckGo",
     "url": "https://duck.ai",
     "description": "Free, no-account multi-model chat with strong privacy: prompts anonymized, not used for training.",
-    "free_tier": "Free, no account: multiple models (reported: Claude 4.5 Haiku, Llama 4 Scout, Mistral Small 3 24B, GPT-4o mini, GPT-5 mini, gpt-oss-120b); daily cap not published",
-    "limits": "unverified — daily cap not published; voice free within limits",
+    "free_tier": "Free within a daily limit; no account required; anonymized/proxied access to popular chatbots (GPT-4o mini, o3-mini, Llama 3.3, Mistral Small 3, Claude 3 Haiku — models periodically updated)",
+    "limits": "Daily limit exists but exact number unpublished on the official page",
     "gotchas": [
-      "Privacy-strong: prompts anonymized, not used for training, history stored locally (optional encrypted sync)"
+      "Chats anonymized via proxying and never used for AI model training; recent chats stored locally on-device only",
+      "DuckDuckGo states it plans to keep the current level of access free"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://spreadprivacy.com/ai-feature-upgrade/",
     "status": "active",
     "category": "chat"
   },
@@ -761,7 +778,8 @@
     "free_tier": "100% free, no sign-up for basic use (per third-party reviews): anonymous side-by-side model battles, direct chat with featured models, voting, community leaderboards; file uploads up to ~10MB per one guide",
     "limits": "unverified — no published daily caps found",
     "gotchas": [
-      "Research project: prompts are logged and may become part of published datasets — do not share sensitive data"
+      "Research project: prompts are logged and may become part of published datasets — do not share sensitive data",
+      "Verification: official homepage is leaderboard marketing with no free-plan terms or usage limits stated (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -773,14 +791,17 @@
     "vendor": "Meta",
     "url": "https://www.llama.com/models/llama-4/",
     "description": "Meta's open-weight flagships: Llama 4 Scout (17B active / 109B MoE, 10M ctx) and Maverick (17B active / ~400B MoE, 1M ctx).",
-    "free_tier": "Open weights — run at zero marginal cost once downloaded",
-    "limits": "Hardware: Scout fits single H100 (Int4); Maverick needs multi-GPU",
+    "free_tier": "Open weights under the Llama 4 Community License — free to download, intended for commercial and research use, zero marginal cost once downloaded",
+    "limits": "Hardware: Scout fits single H100 (Int4); Maverick FP8 fits a single H100 DGX host, BF16 needs multi-GPU",
     "gotchas": [
-      "Custom Llama Community License (third-party summaries — verify the license text before redistribution)",
-      "Muse Glimmer (30B, Apache-2.0) shipped Aug 2026 per third-party reports (unverified)"
+      "Custom Llama 4 Community License — NOT open source (no OSI approval)",
+      "Attribution ('Built with Llama') required on redistribution",
+      "Use must comply with Meta's Acceptable Use Policy",
+      "Licensees over 700M monthly active users need a separate license from Meta",
+      "Muse Glimmer (30B, Apache-2.0) shipped Aug 2026 per third-party reports — unverified on an official page"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://github.com/meta-llama/llama-models/blob/HEAD/models/llama4/MODEL_CARD.md",
     "status": "active",
     "category": "local"
   },
@@ -1005,13 +1026,13 @@
     "vendor": "IBM",
     "url": "https://huggingface.co/ibm-granite/granite-4.0-350m",
     "description": "Enterprise/agent-focused open family: 1B-32B dense + MoE, Apache 2.0 (third-party).",
-    "free_tier": "Open weights (Apache 2.0, third-party) — zero marginal cost",
-    "limits": "Hardware: spans laptop to GPU class",
+    "free_tier": "Open weights under Apache 2.0 — free use for both research and commercial purposes, zero marginal cost",
+    "limits": "Hardware: spans laptop to GPU class (micro/tiny/small dense + MoE-hybrid variants, via ibm-granite/* on Hugging Face)",
     "gotchas": [
-      "License from third-party summaries — verify the card before commercial use"
+      "Apache 2.0 confirmed on IBM's official granite-4.0-language-models README (2026-09-30)"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://github.com/ibm-granite/granite-4.0-language-models/blob/HEAD/README.md",
     "status": "active",
     "category": "local"
   },
@@ -1035,13 +1056,13 @@
     "vendor": "OpenBMB",
     "url": "https://huggingface.co/openbmb",
     "description": "MiniCPM5 1B (May 2026) / 2B (Sep 7 2026), Apache 2.0 (third-party), with MLX 4-bit builds.",
-    "free_tier": "Open weights (Apache 2.0, third-party) — zero marginal cost",
+    "free_tier": "Open weights under Apache 2.0 — zero marginal cost",
     "limits": "Hardware: laptop/edge class with MLX 4-bit",
     "gotchas": [
-      "License from third-party summaries — verify the card before commercial use"
+      "Apache 2.0 confirmed in the official OpenBMB/MiniCPM repo LICENSE (2026-09-30)"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://github.com/OpenBMB/MiniCPM/blob/main/LICENSE",
     "status": "active",
     "category": "local"
   },
@@ -1053,7 +1074,8 @@
     "free_tier": "Open weights (MIT, third-party) — zero marginal cost",
     "limits": "Hardware: 100B+ class — multi-GPU",
     "gotchas": [
-      "License from third-party summaries — verify the card before commercial use"
+      "License from third-party summaries — verify the card before commercial use",
+      "Verification: official inclusionAI HF page read but license not exposed; ant-ling.com and ModelScope unreachable — MIT claim third-party only (2026-09-30)"
     ],
     "free_verified": false,
     "source_url": "",
@@ -1110,13 +1132,15 @@
     "vendor": "LM Studio",
     "url": "https://lmstudio.ai",
     "description": "Desktop GUI for discovering, downloading (GGUF/MLX), and chatting with local models — no CLI needed.",
-    "free_tier": "Free desktop app — zero marginal cost",
-    "limits": "Your hardware is the limit",
+    "free_tier": "Free desktop app for downloading, discovering, and running local LLMs (GGUF/MLX) — zero marginal cost",
+    "limits": "Your hardware is the limit; available for macOS, Windows, Linux (llama.cpp; MLX on Apple Silicon)",
     "gotchas": [
+      "App itself is proprietary (not open source); free to download and use",
+      "Optional paid Enterprise tier reported by third-party guides — not confirmed on official pages",
       "GUI-first: easiest path for non-CLI users to run local models"
     ],
-    "free_verified": false,
-    "source_url": "",
+    "free_verified": true,
+    "source_url": "https://lmstudio.ai/docs",
     "status": "active",
     "category": "local"
   },
