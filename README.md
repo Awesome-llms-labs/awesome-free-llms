@@ -20,6 +20,7 @@
 - [Open-weight models you can run locally](#open-weight-models-you-can-run-locally)
 - [Retired / changed free tiers](#retired--changed-free-tiers)
 - [Guides](#guides)
+- [Related repositories](#related-repositories)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -142,6 +143,13 @@ Free tiers that ended or changed materially, newest first.
 - [Limits & gotchas](docs/limits-and-gotchas.md) — how to read rate limits, credit expiry, and the fine print without surprises.
 - [Privacy & data notes](docs/privacy-and-data-notes.md) — which free tiers train on your data, and how to opt out.
 - [Machine-readable catalog](data/free-llms.json) — every entry with free-tier verification status.
+
+## Related repositories
+
+- [awesome-flagship-llms](https://github.com/dakotac1994/awesome-flagship-llms) — sibling list: flagship frontier LLMs, pricing, and benchmarks.
+- [awesome-flash-llms](https://github.com/dakotac1994/awesome-flash-llms) — sibling list: cost-performance Flash-class LLMs and their $/1M-token pricing.
+- [awesome-fast-llms](https://github.com/dakotac1994/awesome-fast-llms) — sibling list: inference-speed LLMs, providers, engines, and optimization techniques.
+- [awesome-decisions-llms](https://github.com/dakotac1994/awesome-decisions-llms) — sibling list: LLMs and systems for decision-making — decision-tuned models, decision benchmarks & evals, frameworks, and key research papers.
 
 ## Contributing
 
